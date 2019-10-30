@@ -1,0 +1,9 @@
+{
+  "name": "testcafe-demo",
+  "version": "0.0.1",
+  "description": "TestCafe Demo",
+  "main": " ",
+  "author": "jimCresswell <jim.cresswell@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
