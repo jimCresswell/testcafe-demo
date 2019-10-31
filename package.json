@@ -9,5 +9,8 @@
   "repository": "https://github.com/jimCresswell/testcafe-demo.git",
   "dependencies": {
     "testcafe": "^1.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0"
   }
 }
