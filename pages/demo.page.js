@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe';
+import { Selector, t as testController } from 'testcafe';
 
 /**
  * Shared selectors
@@ -10,8 +10,8 @@ const label = Selector('label');
  * @param {String} text Text to locate the feature selector with.
  */
 class FeatureChoice {
-  constructor (text) {
-    this.label    = label.withText(text);
+  constructor (featureLabel) {
+    this.label = label.withText(featureLabel);
     this.checkbox = this.label.find('input[type=checkbox]');
   }
 }
@@ -23,7 +23,7 @@ class Page {
   constructor () {
     // General page elements.
     this.nameInput = Selector('#developer-name');
-    this.submit = Selector('#submit-button');
+    this.submitButton = Selector('#submit-button');
     this.articleHeader = Selector('.result-content').find('h1');
 
     // Feature selection elements.
@@ -33,6 +33,31 @@ class Page {
       new FeatureChoice('Re-using existing JavaScript code for testing'),
       new FeatureChoice('Easy embedding into a Continuous integration system')
     ]
+  }
+
+
+  /******
+   * DOM property accessors.
+   ******/
+
+   get headerText() {
+     return this.articleHeader.innerText;
+   }
+
+
+  /******
+   * Page interaction methods.
+   ******/
+
+  async submitName (name) {
+    await testController
+      .typeText(this.nameInput, name)
+      .click(this.submitButton);
+  }
+
+  async selectFeature (featureLabel) {
+    await testController
+      .click(featureLabel);
   }
 }
 
