@@ -7,17 +7,15 @@ module.exports = {
     "extends": "eslint:recommended",
     "globals": {
         "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
+        "SharedArrayBuffer": "readonly",
+        /* testcafe api */
+        "fixture": true,
+        "test": true
     },
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "rules": {
-    },
-    "globals": {
-      /* testcafe api */
-      "fixture": true,
-      "test": true
     }
 };
